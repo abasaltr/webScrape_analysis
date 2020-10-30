@@ -56,9 +56,9 @@ def scrape():
     browser.visit(url_news)
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
-    time.sleep(2)
+    time.sleep(5)
     results = soup.find_all('li', class_="slide")
-    time.sleep(2)
+    time.sleep(5)
 
     news = []
     for result in results:
@@ -86,9 +86,9 @@ def scrape():
     browser.visit(url_img_featured)
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
-    time.sleep(4)
+    time.sleep(2)
     results = soup.find_all('article', class_="carousel_item")
-    time.sleep(4)
+    time.sleep(2)
 
     # identify image id scraping background image featured on cover site
     # assign to image_url_featured
