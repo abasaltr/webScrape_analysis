@@ -214,9 +214,19 @@ def scrape():
     #     Create a template HTML file called index.html that will take the mars data dictionary
     #         Display all of the data in the appropriate HTML elements
     missionMars = {}
-    missionMars['News'] = news[0]
+    
     missionMars['Featured_image_url'] = image_url_featured
     missionMars['Mars_hemispheres'] = mars_hemispheres
+
+    try:
+        missionMars['News'] = news[0]
+    except (IndexError):
+        newsU = []
+        news_u = {}
+        news_u['Title'] = "Title unavailable"
+        news_u['Article'] = "Paragraph unavailable"
+        newsU.append(news_u)
+        missionMars['News'] = newsU[0]
 
     return missionMars
 
